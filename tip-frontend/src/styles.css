@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+.form-box {
+    max-width: 450px;
+}
+
+.logo {
+    max-height: 2rem;
+}
+
+.small-text {
+    font-size: 0.8rem;
+}

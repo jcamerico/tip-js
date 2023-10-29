@@ -1,0 +1,35 @@
+{
+    "MENTIONS": {
+        "BACK": "Retour à l'inscription"
+    },
+    "HEADER": {
+        "REGISTER": "Créer un compte",
+        "LOGIN": "Se connecter"
+    },
+    "GENERAL": {
+        "TIP": "Tournoi International de Paris",
+        "EMAIL": "Adresse email",
+        "PASSWORD": "Mot de passe"
+    },
+    "LOGIN": {
+        "ERROR": "Adresse email et/ou mot de passe incorrectes",
+        "CLOSED": "Les inscriptions sont actuellement closes. Rendez-vous en février 2024!",
+        "SHORT": "Connectez-vous",
+        "ACTION": "Se connecter à mon compte",
+        "CREATE": "Créer un compte",
+        "FORGOT-PWD": "J'ai oublié mon mot de passe"
+    },
+    "REGISTER": {
+        "SHORT": "Formulaire d'inscription",
+        "FIRSTNAME": "Prénom",
+        "LASTNAME": "Nom",
+        "PASSWORD": "Confirmez votre mot de passe",
+        "AGREEMENT": "En créant un compte, vous acceptez nos <a href=\"{{mentionUrl}}\">Mentions Légales et Politique de Confidentialité</a>",
+        "ACTION": "S'inscrire",
+        "ALREADY": "Déjà inscrit?",
+        "LOGIN": "Se connecter",
+        "SHOW-PWD": "Afficher mot de passe",
+        "HIDE-PWD": "Cacher mot de passe"
+
+    }
+}
