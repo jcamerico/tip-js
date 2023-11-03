@@ -81,6 +81,12 @@
             formControlName="passwordConfirmation"
           />
         </div>
+        <div
+          class="g-recaptcha"
+          [attr.data-sitekey]="siteKey"
+          data-callback="captchaCallback"
+        ></div>
+
         <div class="form-check mb-3">
           <input
             class="form-check-input"
@@ -95,7 +101,11 @@
           ></label>
         </div>
         <div class="mb-3">
-          <button type="submit" class="btn btn-primary w-100">
+          <button
+            type="submit"
+            class="btn btn-primary w-100"
+            [disabled]="registration.invalid"
+          >
             {{ "REGISTER.ACTION" | translate }}
           </button>
         </div>
