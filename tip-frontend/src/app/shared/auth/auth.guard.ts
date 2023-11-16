@@ -10,3 +10,14 @@ export const authGuard: CanActivateFn = (route, state) => {
   }
   return authenticated;
 };
+
+export const adminGuard: CanActivateFn = (route, state) => {
+  const authService = inject(AuthService);
+  if (!authService.isAuthenticated()) {
+    inject(Router).navigate(['/login']);
+  }
+  if (!authService.isAdmin()) {
+    inject(Router).navigate(['/dashboard']);
+  }
+  return authService.isAuthenticated() && authService.isAdmin();
+};

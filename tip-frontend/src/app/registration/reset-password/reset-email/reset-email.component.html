@@ -1,0 +1,58 @@
+<div class="container-fluid form-box mt-3">
+  <!-- EMAIL SENT -->
+  <div *ngIf="emailSent" class="alert alert-success my-3" role="alert">
+    <p>{{ "RESET-PWD.EMAIL-SENT" | translate : emailParams }}</p>
+    <div class="d-flex justify-content-end">
+      <a class="btn btn-success" [routerLink]="['/login']">{{
+        "RESET-PWD.BACK" | translate
+      }}</a>
+    </div>
+  </div>
+
+  <!-- EMAIL UNKNOWN -->
+  <div *ngIf="emailUnknown" class="alert alert-danger my-3" role="alert">
+    <p>{{ "ERROR.EMAIL-UNKNOWN" | translate : emailParams }}</p>
+    <div class="d-flex justify-content-end">
+      <a class="btn btn-danger" [routerLink]="['/register']">{{
+        "HEADER.REGISTER" | translate
+      }}</a>
+    </div>
+  </div>
+
+  <div class="card mb-3 text-center border-secondary">
+    <div class="card-header text-bg-dark">
+      <div class="d-flex align-items-center justify-content-between">
+        <span>{{ "RESET-PWD.ACTION" | translate }}</span>
+        <img
+          src="/assets/images/logotype_blanc.svg"
+          alt="TIP Logo"
+          class="logo"
+        />
+      </div>
+    </div>
+    <div class="card-body">
+      <form class="mt-3" [formGroup]="pwdReset" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="email" class="form-label">{{
+            "GENERAL.EMAIL" | translate
+          }}</label>
+          <input
+            class="form-control"
+            id="email"
+            type="email"
+            name="email"
+            placeholder="tipy@tip.com"
+            formControlName="email"
+          />
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary mb-3"
+          [disabled]="pwdReset.invalid"
+        >
+          {{ "RESET-PWD.ACTION" | translate }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

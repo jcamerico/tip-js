@@ -1,0 +1,28 @@
+<div class="container-fluid form-box mt-3">
+  <div
+    *ngIf="validToken; else invalidToken"
+    class="alert alert-success my-3"
+    role="alert"
+  >
+    <p>{{ "EMAIL-VALIDATION.SUCCESS" | translate }}</p>
+    <div class="d-flex justify-content-end">
+      <a class="btn btn-success" [routerLink]="['/login']">{{
+        "EMAIL-VALIDATION.BACK" | translate
+      }}</a>
+    </div>
+  </div>
+</div>
+
+<ng-template #invalidToken>
+  <div class="alert alert-danger my-3" role="alert">
+    <p>{{ "EMAIL-VALIDATION.ERROR" | translate }}</p>
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-danger" (click)="resendValidationEmail()">
+        {{ "REGISTER.VALIDATION-EMAIL" | translate }}
+      </button>
+    </div>
+  </div>
+  <div *ngIf="emailResent" class="alert alert-success my-1" role="alert">
+    <p [innerHTML]="'REGISTER.EMAIL-SENT' | translate : emailParams"></p>
+  </div>
+</ng-template>

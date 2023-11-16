@@ -4,7 +4,12 @@
     },
     "HEADER": {
         "REGISTER": "Register",
-        "LOGIN": "Login"
+        "LOGIN": "Login",
+        "LOGOUT": "Logout"
+    },
+    "FOOTER": {
+        "PRIVACY-POLICY": "Legal Notice - Privacy Policy",
+        "ALL-RIGHTS": "All rights reserved"
     },
     "GENERAL": {
         "TIP": "Paris International Tournament",
@@ -29,6 +34,37 @@
         "ALREADY": "Already registered?",
         "LOGIN": "Login with your account",
         "SHOW-PWD": "Show password",
-        "HIDE-PWD": "Hide password"
+        "HIDE-PWD": "Hide password",
+        "VALIDATION-EMAIL": "Send me the validation email again",
+        "EMAIL-SENT": "An email has been sent to the address {{ email }}.<br><br>Click on the link contained in this email to validate your registration.<br>Check your spams if necessary."
+    },
+    "ERROR": {
+        "CAPTCHA": "Invalid Captcha - Try again!", 
+        "EMAIL-VALIDATION": "This email address is pending validation.",
+        "EMAIL-ALREADY-REGISTERED": "An account already exists with this email address.",
+        "EMAIL-UNKNOWN": "Email address unknown !",
+        "RESET-TOKEN-INVALID": "Invalid reset token",
+        "LOCKED-ACCOUNT": "Your account has been locked, please contact the organization team"
+    },
+    "RESET-PWD": {
+        "ACTION": "Reset password",
+        "EMAIL-SENT": "An email has been sent to the address {{ email }}.",
+        "BACK": "Back to login",
+        "SUCCESS": "Password changed"
+    },
+    "EMAIL-VALIDATION": {
+        "ERROR" : "Invalid Key! Your email hasn't been validated.",
+        "SUCCESS" : "The email address has been validated. You can log in with your credentials.",
+        "BACK" : "Back to login"
+    },
+    "ALERT": {
+        "INSCRIPTION-CLOSED": "Sport registrations are closed.",
+        "PARTY-TICKETS-CLOSED": "Party Ticket purchasing is closed. <b>On-site purchase available.</b>"
+    },
+    "SIDEBAR": {
+        "DASHBOARD": "Dashboard",
+        "ACCOUNT": "My account",
+        "PROFILE": "My profile"
     }
+
 }

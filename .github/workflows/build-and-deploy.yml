@@ -1,0 +1,9 @@
+name: 🛠️ Build and Deploy 🚀
+on:
+  workflow_dispatch:
+
+jobs:
+  build_front:
+  build_back:
+    needs: build_front
+  deploy:

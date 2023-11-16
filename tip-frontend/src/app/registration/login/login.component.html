@@ -1,0 +1,83 @@
+<div class="container-fluid form-box">
+  <div *ngIf="inscriptionsClosed" class="alert alert-primary my-3" role="alert">
+    {{ "LOGIN.CLOSED" | translate }}
+  </div>
+
+  <!-- ERROR HANDLING -->
+  <div *ngIf="accountLocked" class="alert alert-danger" role="alert">
+    {{ "ERROR.LOCKED-ACCOUNT" | translate }}
+  </div>
+
+  <app-email-validation-alert
+    *ngIf="emailNotValidated"
+    [email]="this.credentials.value.username || ''"
+  ></app-email-validation-alert>
+
+  <div *ngIf="loginError" class="alert alert-danger" role="alert">
+    {{ "LOGIN.ERROR" | translate }}
+  </div>
+
+  <div class="card mb-3 text-center border-secondary">
+    <div class="card-header text-bg-dark">
+      <div class="d-flex align-items-center justify-content-between">
+        <span>{{ "LOGIN.SHORT" | translate }}</span>
+        <img
+          src="/assets/images/logotype_blanc.svg"
+          alt="TIP Logo"
+          class="logo"
+        />
+      </div>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ "GENERAL.TIP" | translate }} {{ year }}</h5>
+      <form class="mt-3" [formGroup]="credentials" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="email" class="form-label">{{
+            "GENERAL.EMAIL" | translate
+          }}</label>
+          <input
+            class="form-control"
+            id="email"
+            type="email"
+            name="email"
+            placeholder="tipy@tip.com"
+            formControlName="username"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">{{
+            "GENERAL.PASSWORD" | translate
+          }}</label>
+          <input
+            class="form-control"
+            type="password"
+            id="password"
+            placeholder="TonMotDePass3"
+            formControlName="password"
+          />
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary mb-3"
+          [disabled]="credentials.invalid"
+        >
+          {{ "LOGIN.ACTION" | translate }}
+        </button>
+      </form>
+      <div class="small-text">
+        <a [routerLink]="['/register']" class="mx-2">{{
+          "LOGIN.CREATE" | translate
+        }}</a>
+        <a [routerLink]="['/reset-pwd']" class="mx-2">{{
+          "LOGIN.FORGOT-PWD" | translate
+        }}</a>
+      </div>
+      <div class="small-text">
+        Contact:
+        <a class="link" href="mailto:registration@paris-tournament.com"
+          >registration@paris-tournament.com</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

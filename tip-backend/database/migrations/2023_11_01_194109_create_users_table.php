@@ -11,7 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('R-auth', function (Blueprint $table) {
+        Schema::create('R_auth', function (Blueprint $table) {
+            $table->id('id_user');
             $table->string('nom');
             $table->string('prenom');
             $table->string('email');
@@ -30,6 +31,7 @@ return new class extends Migration
             $table->string('tokenresetpwd');
             $table->string('dateresetpwd');
             $table->integer('lockaccount');
+            $table->timestamps();
         });
     }
 
@@ -38,6 +40,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('R-auth');
+        Schema::dropIfExists('R_auth');
     }
 };

@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 .form-box {
-    max-width: 450px;
+    max-width: 500px;
 }
 
 .logo {
@@ -11,3 +11,5 @@
 .small-text {
     font-size: 0.8rem;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

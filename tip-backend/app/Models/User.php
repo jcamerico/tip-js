@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\Request;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -32,26 +32,6 @@ class User extends Authenticatable
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
-
     public static function register(Request $request, $sendmail, $cle) {
         $now = date("YmdHis");
         $user = new User();
@@ -62,12 +42,48 @@ class User extends Authenticatable
         $user->validation = User::VALIDATION_NOT_VALIDATED;
         $user->datecrea = $now;
         $user->lastco = $now;
-        $user->lastip = $_SERVER['REMOTE_ADDR']; // to test, we can get from query
+        $user->lastip = $_SERVER['REMOTE_ADDR']; // TODO to test, we can get from query
         $user->sendmail = $sendmail;
-        $user->cle = $cle;
+        $user->clef = $cle;
         $user->etape = User::ETAPE_ACCOUNT_CREATED;
         $user->lockaccount = User::ACCOUNT_NOT_LOCKED;
+        $user->ddn = '';
+        $user->pays = '';
+        $user->nation = '';
+        $user->session = '';
+        $user->tokenresetpwd = '';
+        $user->dateresetpwd = '';
         $user->save();
         return $user->id_user;
     }
+
+    public function updateConnection(Request $request) {
+        $this->lastco = date("YmdHis");
+        $this->lastip = $_SERVER['REMOTE_ADDR'];
+        $this->save();
+    }
+
+    public function resetPassword(Request $request) {
+        $password = sha1($request->input('password'));
+        $this->password = $password;
+        $this->tokenresetpwd = '';
+        $this->save();
+    }
+
+    public function validateEmail() {
+        $this->validation = 1;
+        $this->save();
+    }
+
+    public function updateResetToken($token) {
+        $this->tokenresetpwd = $token;
+        $this->dateresetpwd = date("YmdHi");   
+        $this->save();  
+    }
+
+    public function setSendMail($sendmail) {
+        $this->sendmail = $sendmail;
+        $this->save();
+    }
+    
 }

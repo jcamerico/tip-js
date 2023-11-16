@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('R_droits', function (Blueprint $table) {
-            $table->id('id_user');
+            $table->bigInteger('id_user');
             $table->integer('superadmin');
             $table->integer('admin');
             $table->integer('finance');

@@ -1,36 +1,46 @@
-<div class="border">
-  <div class="p-2 d-flex align-items-center">
-    <img src="/assets/images/logotype_blue.svg" alt="TIP Logo" class="logo" />
-    <strong class="p-2 me-auto">{{ "GENERAL.TIP" | translate }}</strong>
-    <a (click)="changeLanguage('fr')" class="p-2" role="button"
-      ><img src="/assets/images/img_france32.png"
-    /></a>
-    <a (click)="changeLanguage('en')" class="p-2" role="button"
-      ><img src="/assets/images/img_united-kingdom32.png"
-    /></a>
-    <div class="btn-group">
-      <a
-        class="btn dropdown-toggle account-icon-button"
-        href="#"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        <span class="material-symbols-outlined account-icon">
-          account_circle
-        </span>
-      </a>
-      <ul class="dropdown-menu">
-        <li>
-          <a *ngIf="!loggedIn" class="dropdown-item" href="#">{{
-            "HEADER.REGISTER" | translate
-          }}</a>
-        </li>
-        <li>
-          <a *ngIf="!loggedIn" class="dropdown-item" href="#">{{
-            "HEADER.LOGIN" | translate
-          }}</a>
-        </li>
-      </ul>
+<header>
+  <div class="border">
+    <div class="d-flex align-items-center">
+      <img src="/assets/images/logotype_blue.svg" alt="TIP Logo" class="logo" />
+      <strong class="p-2 me-auto">{{ "GENERAL.TIP" | translate }}</strong>
+      <a (click)="changeLanguage('fr')" class="p-2" role="button"
+        ><img src="/assets/images/img_france32.png"
+      /></a>
+      <a (click)="changeLanguage('en')" class="p-2" role="button"
+        ><img src="/assets/images/img_united-kingdom32.png"
+      /></a>
+      <div class="btn-group">
+        <a
+          class="btn dropdown-toggle account-icon-button"
+          href="#"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <span class="material-symbols-outlined account-icon">
+            account_circle
+          </span>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a *ngIf="!loggedIn" class="dropdown-item" href="#">{{
+              "HEADER.REGISTER" | translate
+            }}</a>
+          </li>
+          <li>
+            <a *ngIf="!loggedIn" class="dropdown-item" href="#">{{
+              "HEADER.LOGIN" | translate
+            }}</a>
+          </li>
+          <li>
+            <p *ngIf="loggedIn" class="dropdown-item">{{ email }}</p>
+          </li>
+          <li>
+            <button *ngIf="loggedIn" class="dropdown-item" (click)="logout()">
+              {{ "HEADER.LOGOUT" | translate }}
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
+</header>

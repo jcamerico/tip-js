@@ -1,0 +1,13 @@
+<footer class="footer border-top p-2 mx-auto">
+  <div class="d-flex justify-content-center">
+    <small>
+      © {{ year }} {{ "GENERAL.TIP" | translate }}
+      <div class="vr mx-3"></div>
+      {{ "FOOTER.ALL-RIGHTS" | translate }}
+      <div class="vr mx-3"></div>
+      <a [routerLink]="['/privacy-policy']">{{
+        "FOOTER.PRIVACY-POLICY" | translate
+      }}</a>
+    </small>
+  </div>
+</footer>

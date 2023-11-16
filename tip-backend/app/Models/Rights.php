@@ -12,4 +12,7 @@ class Rights extends Model
     protected $table = 'R_auth';
     protected $primaryKey = 'id_user';
 
+    public $incrementing = false;
+
+
 }
