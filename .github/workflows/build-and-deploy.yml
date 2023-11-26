@@ -63,7 +63,7 @@ jobs:
           cd ./tip-frontend
           npm ci
           npm run build:prod
-      - name: copy files via scp
+      - name: Copy files via scp
         uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.HOST }}
@@ -73,7 +73,7 @@ jobs:
           source: tip-backend/*
           target: tip
           strip_components: 1
-      - name: Install composer and prepare server
+      - name: Install composer and install dependencies
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.HOST }}
@@ -84,4 +84,4 @@ jobs:
             curl -sS https://getcomposer.org/installer | php
             mv ./composer.phar tip/
             cd tip/
-            ./composer.phar install -—no-dev
+            ./composer.phar install --no-dev --optimize-autoloader
