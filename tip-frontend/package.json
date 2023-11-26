@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:prod": "ng build --configuration production && cp -r dist/tip-frontend/* ../tip-backend/public && cp ../tip-backend/public/index.html ../tip-backend/resources/views/angular.blade.php"
+    "build:prod": "ng build --configuration production && cp -r dist/tip-frontend/* ../tip-backend/public && cp ../tip-backend/public/index.html ../tip-backend/resources/views/angular.blade.php",
+    "test-headless": "ng test --watch=false --browsers=ChromeHeadless"
   },
   "private": true,
   "dependencies": {

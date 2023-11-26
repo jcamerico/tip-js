@@ -59,7 +59,9 @@
     },
     "ALERT": {
         "INSCRIPTION-CLOSED": "Sport registrations are closed.",
-        "PARTY-TICKETS-CLOSED": "Party Ticket purchasing is closed. <b>On-site purchase available.</b>"
+        "PARTY-TICKETS-CLOSED": "Party Ticket purchasing is closed. <b>On-site purchase available.</b>",
+        "QRCODE-SENT": "Your QR Code has been sent to your email",
+        "DISCOUNTS": "You have discount codes available"
     },
     "SIDEBAR": {
         "DASHBOARD": "Dashboard",

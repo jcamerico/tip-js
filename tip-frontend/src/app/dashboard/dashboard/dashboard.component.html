@@ -54,8 +54,12 @@
           </div>
         </div>
         <div class="row">
-          <div class="alert alert-info my-1 w-50 mx-auto" role="alert">
-            Discounts
+          <div
+            class="alert alert-info my-1 w-50 mx-auto"
+            *ngIf="userData.availableDiscounts.length > 0"
+            role="alert"
+          >
+            <span>{{ "ALERT.DISCOUNTS" | translate }}</span>
           </div>
         </div>
         <div class="row">
@@ -64,6 +68,7 @@
             class="alert alert-success my-1 w-50 mx-auto"
             role="alert"
           >
+            {{ "ALERT.QRCODE-SENT" | translate }}
             Party QR Code sent
           </div>
         </div>

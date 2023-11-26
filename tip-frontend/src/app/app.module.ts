@@ -49,7 +49,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   }),
     BrowserAnimationsModule
   ],
-  exports: [],
+  exports: [TranslateModule],
   providers: [],
   bootstrap: [AppComponent]
 })

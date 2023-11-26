@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FooterComponent } from './footer.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('FooterComponent', () => {
   let component: FooterComponent;
@@ -8,7 +10,8 @@ describe('FooterComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FooterComponent]
+      declarations: [FooterComponent],
+      imports: [TranslateModule.forRoot(), RouterTestingModule]
     });
     fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;

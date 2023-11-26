@@ -59,7 +59,9 @@
     },
     "ALERT": {
         "INSCRIPTION-CLOSED": "Les inscriptions aux sports sont fermées.",
-        "PARTY-TICKETS-CLOSED": "Les achats de Tickets pour la soirée sont fermés. <b>Achat sur place possible.</b>"
+        "PARTY-TICKETS-CLOSED": "Les achats de Tickets pour la soirée sont fermés. <b>Achat sur place possible.</b>",
+        "QRCODE-SENT": "Votre QRCode a bien été envoyé par e-mail",
+        "DISCOUNTS": "Vous avez des codes de réductions disponibles"
     },
     "SIDEBAR": {
         "DASHBOARD": "Tableau de bord",

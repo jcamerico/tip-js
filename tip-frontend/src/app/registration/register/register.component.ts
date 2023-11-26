@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RegistrationService } from '../registration.service';
 import { RegistrationData } from '../registration.model';
 import { environment } from 'src/environments/environment';
-import { TranslateService } from '@ngx-translate/core';
 import { passwordValidator } from '../registration.utils';
 
 @Component({
