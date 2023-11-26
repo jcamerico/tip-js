@@ -63,6 +63,15 @@ jobs:
           cd ./tip-frontend
           npm ci
           npm run build:prod
+      - name: copy files via scp
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: tip-backend/*
+          target: tip
       - name: Install composer and prepare server
         uses: appleboy/ssh-action@v1.0.0
         with:
