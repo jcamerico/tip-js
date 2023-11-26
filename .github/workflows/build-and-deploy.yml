@@ -81,5 +81,6 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            whoami
-            ls -al
+            curl -sS https://getcomposer.org/installer | php
+            mv composer.phar tip/
+            composer.phar install —optimize-autoloader -—no-dev
