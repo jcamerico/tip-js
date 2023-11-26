@@ -48,7 +48,7 @@ jobs:
           cp .env.ci .env
           php artisan key:generate
 
-      - name: Run Testsuite
+      - name: Run test suite
         run: vendor/bin/phpunit tests/
 
   deploy:
@@ -59,3 +59,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
+      - name: Build front end for production
+        working-directory: ./tip-frontend
+        run: |
+          npm run build:prod

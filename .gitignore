@@ -129,6 +129,7 @@ dist
 .yarn/install-state.gz
 .pnp.*
 .DS_Store
+tip-backend/resources/views/angular.blade.php
 tip-backend/public/assets/images
 tip-backend/public/assets/i18n
 tip-backend/public/3rdpartylicenses.txt
