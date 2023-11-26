@@ -84,4 +84,4 @@ jobs:
             curl -sS https://getcomposer.org/installer | php
             mv ./composer.phar tip/
             cd tip/
-            ./composer.phar install —optimize-autoloader -—no-dev
+            ./composer.phar install -—no-dev
