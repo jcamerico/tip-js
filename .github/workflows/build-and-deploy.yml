@@ -5,9 +5,10 @@ on:
 jobs:
   build_front:
     runs-on: ubuntu-latest
-      defaults:
-        run:
-          working-directory: tip-frontend
+    defaults:
+      run:
+        shell: bash
+        working-directory: tip-frontend
     strategy:
       matrix:
         node-version: [18.x]
@@ -20,25 +21,25 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm run test-headless
-  
+
   build_back:
     runs-on: ubuntu-latest
-      defaults:
-        run:
-          working-directory: tip-backend
-
+    defaults:
+      run:
+        shell: bash
+        working-directory: tip-backend
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Install composer dependencies
         run: |
           composer install --no-scripts
-      
+
       - name: Run Testsuite
-        run: vendor/bin/phpunit tests/    
-      
+        run: vendor/bin/phpunit tests/
+
   deploy:
-    needs: build_front, build_back
+    needs: [build_front, build_back]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
