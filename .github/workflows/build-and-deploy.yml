@@ -48,16 +48,20 @@ jobs:
     needs: [build_front, build_back]
     runs-on: ubuntu-latest
     environment: ${{ github.ref == 'refs/heads/main' && 'production' || 'development' }}
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
       - uses: actions/setup-node@v3
         with:
-          node-version: "18.x"
+          node-version: 18.x
       - name: Build front end for production
-        working-directory: ./tip-frontend
         run: |
+          cd ./tip-frontend
+          npm ci
           npm run build:prod
       - name: Install composer and prepare server
         uses: appleboy/ssh-action@v1.0.0
