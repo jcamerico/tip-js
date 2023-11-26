@@ -55,6 +55,7 @@ jobs:
     name: Build and deploy application
     needs: [build_front, build_back]
     runs-on: ubuntu-latest
+    environment: ${{ github.ref == 'refs/heads/main' && 'production' || 'development' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -63,3 +64,13 @@ jobs:
         working-directory: ./tip-frontend
         run: |
           npm run build:prod
+      - name: Install composer and prepare server
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            whoami
+            ls -al
