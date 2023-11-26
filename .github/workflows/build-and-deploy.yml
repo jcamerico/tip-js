@@ -72,6 +72,7 @@ jobs:
           port: ${{ secrets.PORT }}
           source: tip-backend/*
           target: tip
+          strip_components: 1
       - name: Install composer and prepare server
         uses: appleboy/ssh-action@v1.0.0
         with:
