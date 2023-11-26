@@ -4,6 +4,7 @@ on:
 
 jobs:
   build_front:
+    name: Launch front end tests
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -23,6 +24,7 @@ jobs:
       - run: npm run test-headless
 
   build_back:
+    name: Launch back end tests
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -41,10 +43,15 @@ jobs:
         run: |
           composer install --no-scripts
 
+      - name: Prepare Laravel Application
+        run: |
+          php artisan key:generate
+
       - name: Run Testsuite
         run: vendor/bin/phpunit tests/
 
   deploy:
+    name: Build and deploy application
     needs: [build_front, build_back]
     runs-on: ubuntu-latest
     steps:
