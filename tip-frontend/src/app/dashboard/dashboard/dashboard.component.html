@@ -1,0 +1,82 @@
+<mat-drawer-container>
+  <mat-drawer mode="side" opened>
+    <app-sidebar [selectedMenu]="0"></app-sidebar>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="container-fluid p-2">
+      <!-- ALERTS -->
+      <div class="alerts">
+        <div class="row">
+          <div *ngIf="sportInscriptionClosed || partyTicketsClosed">
+            <div class="alert alert-info my-1 w-50 mx-auto" role="alert">
+              <p *ngIf="sportInscriptionClosed">
+                {{ "ALERT.INSCRIPTION-CLOSED" | translate }}
+              </p>
+              <p
+                *ngIf="partyTicketsClosed"
+                [innerHtml]="'ALERT.PARTY-TICKETS-CLOSED' | translate"
+              ></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div
+            *ngIf="userData.volunteerInfoMissing"
+            class="alert alert-warning my-1 w-50 mx-auto"
+            role="alert"
+          >
+            <strong>Fiche bénévole à renseigner !</strong><br />
+            Pensez à renseigner la fiche <b>bénévole</b> pour valider votre
+            engagement et nous aider à vous proposer des postes. Merci.
+          </div>
+        </div>
+        <div class="row">
+          <div
+            *ngIf="userData.hostingInfoMissing"
+            class="alert alert-warning my-1 w-50 mx-auto"
+            role="alert"
+          >
+            <strong>Fiche hébergement à renseigner !</strong><br />
+            Pensez à renseigner la fiche <b>hébergement</b> pour que votre offre
+            soit disponible auprès des personnes cherchant un hébergement.
+            Merci.
+          </div>
+        </div>
+        <div class="row">
+          <div
+            *ngIf="userData.outreachInfoMissing"
+            class="alert alert-warning my-1 w-50 mx-auto"
+            role="alert"
+          >
+            <strong>Demande de fond d'aide à renseigner !</strong><br />
+            Pensez à renseigner votre <b>demande de fond d'aide</b> pour qu'elle
+            soit étudiée par le pôle outreach. Merci.
+          </div>
+        </div>
+        <div class="row">
+          <div
+            class="alert alert-info my-1 w-50 mx-auto"
+            *ngIf="userData.availableDiscounts.length > 0"
+            role="alert"
+          >
+            <span>{{ "ALERT.DISCOUNTS" | translate }}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div
+            *ngIf="partyQrCodeSent"
+            class="alert alert-success my-1 w-50 mx-auto"
+            role="alert"
+          >
+            {{ "ALERT.QRCODE-SENT" | translate }}
+            Party QR Code sent
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-8"></div>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

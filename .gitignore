@@ -128,3 +128,11 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+.DS_Store
+tip-backend/resources/views/angular.blade.php
+tip-backend/public/assets/images
+tip-backend/public/assets/i18n
+tip-backend/public/3rdpartylicenses.txt
+tip-backend/public/index.html
+tip-backend/public/*.js
+tip-backend/public/*.css

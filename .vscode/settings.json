@@ -1,0 +1,7 @@
+{
+    "karmaTestExplorer.projectWorkspaces": [
+        {
+            "rootPath": "./tip-frontend/src"
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+<div>
+  <div class="alert alert-warning" role="alert">
+    <p>{{ "ERROR.EMAIL-VALIDATION" | translate }}</p>
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-warning" (click)="resendEmail()">
+        {{ "REGISTER.VALIDATION-EMAIL" | translate }}
+      </button>
+    </div>
+  </div>
+  <app-email-sent *ngIf="emailResent" [email]="email"></app-email-sent>
+</div>

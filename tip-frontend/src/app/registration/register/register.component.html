@@ -1,0 +1,142 @@
+<div class="container-fluid form-box mt-3">
+  <!-- ERROR HANDLING -->
+
+  <!-- CAPTCHA -->
+  <div *ngIf="errorMessage" class="alert alert-danger my-3" role="alert">
+    {{ errorMessage | translate }}
+  </div>
+
+  <app-email-sent
+    *ngIf="emailResent"
+    [email]="this.registration.value.email || ''"
+  ></app-email-sent>
+
+  <!-- RESEND VALIDATION EMAIL -->
+  <app-email-validation-alert
+    *ngIf="missingValidation"
+    [email]="this.registration.value.email || ''"
+    (emailSent)="emailResent = true"
+  ></app-email-validation-alert>
+
+  <!-- EMAIL ALREADY REGISTERED -->
+  <div *ngIf="emailAlreadyUsed" class="alert alert-warning my-3" role="alert">
+    <p>{{ "ERROR.EMAIL-ALREADY-REGISTERED" | translate }}</p>
+    <div class="d-flex justify-content-between">
+      <a [routerLink]="['/reset-pwd']" class="btn btn-warning btn-sm">
+        {{ "LOGIN.FORGOT-PWD" | translate }}
+      </a>
+      <a [routerLink]="['/login']" class="btn btn-warning btn-sm">
+        {{ "LOGIN.ACTION" | translate }}
+      </a>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <div class="card mb-3 border-secondary">
+    <div class="card-header text-bg-secondary">
+      <div class="d-flex align-items-center justify-content-between">
+        <span>{{ "REGISTER.SHORT" | translate }}</span>
+        <img
+          src="/assets/images/logotype_blanc.svg"
+          alt="TIP Logo"
+          class="logo"
+        />
+      </div>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="registration" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="firstName" class="form-label">{{
+            "REGISTER.FIRSTNAME" | translate
+          }}</label>
+          <input
+            class="form-control"
+            id="firstName"
+            type="text"
+            placeholder="Tipy"
+            formControlName="firstName"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="lastName" class="form-label">{{
+            "REGISTER.LASTNAME" | translate
+          }}</label>
+          <input
+            class="form-control"
+            id="lastName"
+            type="text"
+            placeholder="Pity"
+            formControlName="lastName"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">{{
+            "GENERAL.EMAIL" | translate
+          }}</label>
+          <input
+            class="form-control"
+            id="email"
+            type="email"
+            placeholder="tipy@tip.com"
+            formControlName="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">{{
+            "GENERAL.PASSWORD" | translate
+          }}</label>
+          <app-password-displayable
+            name="password"
+            [formGroup]="registration"
+          ></app-password-displayable>
+        </div>
+        <div class="mb-3">
+          <label for="passwordConfirmation" class="form-label">{{
+            "REGISTER.PASSWORD" | translate
+          }}</label>
+          <input
+            class="form-control"
+            id="passwordConfirmation"
+            type="password"
+            placeholder="TipyPassword"
+            formControlName="passwordConfirmation"
+          />
+        </div>
+        <div
+          class="g-recaptcha"
+          [attr.data-sitekey]="siteKey"
+          data-callback="captchaCallback"
+        ></div>
+
+        <div class="form-check mb-3">
+          <input
+            class="form-check-input"
+            id="legalAgreement"
+            type="checkbox"
+            formControlName="legalAgreement"
+          />
+          <label
+            for="legalAgreement"
+            class="form-check-label"
+            [innerHTML]="'REGISTER.AGREEMENT' | translate : params"
+          ></label>
+        </div>
+        <div class="mb-3">
+          <button
+            type="submit"
+            class="btn btn-primary w-100"
+            [disabled]="registration.invalid"
+          >
+            {{ "REGISTER.ACTION" | translate }}
+          </button>
+        </div>
+      </form>
+      <div class="text-center small-text">
+        <span class="p-1">{{ "REGISTER.ALREADY" | translate }}</span>
+        <a [routerLink]="['/login']" class="p-1">{{
+          "REGISTER.LOGIN" | translate
+        }}</a>
+      </div>
+    </div>
+  </div>
+</div>

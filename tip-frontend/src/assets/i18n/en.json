@@ -1,0 +1,72 @@
+{
+    "MENTIONS": {
+        "BACK": "Back to register"
+    },
+    "HEADER": {
+        "REGISTER": "Register",
+        "LOGIN": "Login",
+        "LOGOUT": "Logout"
+    },
+    "FOOTER": {
+        "PRIVACY-POLICY": "Legal Notice - Privacy Policy",
+        "ALL-RIGHTS": "All rights reserved"
+    },
+    "GENERAL": {
+        "TIP": "Paris International Tournament",
+        "EMAIL": "Email address",
+        "PASSWORD": "Password"
+    },
+    "LOGIN": {
+        "ERROR": "Email address and/or password incorrect",
+        "CLOSED": "Registrations are currently closed and will open in February 2024.",
+        "SHORT": "Login",
+        "ACTION": "Login to my account",
+        "CREATE": "Create an account",
+        "FORGOT-PWD": "Reset my password"
+    },
+    "REGISTER": {
+        "SHORT": "Registration form",
+        "FIRSTNAME": "First name",
+        "LASTNAME": "Last name",
+        "PASSWORD": "Confirm your password",
+        "AGREEMENT": "By creating an account, you accept <a href=\"{{mentionUrl}}\">our legal notice and privacy policy</a>",
+        "ACTION": "Register",
+        "ALREADY": "Already registered?",
+        "LOGIN": "Login with your account",
+        "SHOW-PWD": "Show password",
+        "HIDE-PWD": "Hide password",
+        "VALIDATION-EMAIL": "Send me the validation email again",
+        "EMAIL-SENT": "An email has been sent to the address {{ email }}.<br><br>Click on the link contained in this email to validate your registration.<br>Check your spams if necessary."
+    },
+    "ERROR": {
+        "CAPTCHA": "Invalid Captcha - Try again!", 
+        "EMAIL-VALIDATION": "This email address is pending validation.",
+        "EMAIL-ALREADY-REGISTERED": "An account already exists with this email address.",
+        "EMAIL-UNKNOWN": "Email address unknown !",
+        "RESET-TOKEN-INVALID": "Invalid reset token",
+        "LOCKED-ACCOUNT": "Your account has been locked, please contact the organization team"
+    },
+    "RESET-PWD": {
+        "ACTION": "Reset password",
+        "EMAIL-SENT": "An email has been sent to the address {{ email }}.",
+        "BACK": "Back to login",
+        "SUCCESS": "Password changed"
+    },
+    "EMAIL-VALIDATION": {
+        "ERROR" : "Invalid Key! Your email hasn't been validated.",
+        "SUCCESS" : "The email address has been validated. You can log in with your credentials.",
+        "BACK" : "Back to login"
+    },
+    "ALERT": {
+        "INSCRIPTION-CLOSED": "Sport registrations are closed.",
+        "PARTY-TICKETS-CLOSED": "Party Ticket purchasing is closed. <b>On-site purchase available.</b>",
+        "QRCODE-SENT": "Your QR Code has been sent to your email",
+        "DISCOUNTS": "You have discount codes available"
+    },
+    "SIDEBAR": {
+        "DASHBOARD": "Dashboard",
+        "ACCOUNT": "My account",
+        "PROFILE": "My profile"
+    }
+
+}

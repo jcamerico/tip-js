@@ -1,0 +1,32 @@
+<mat-nav-list>
+  <a
+    mat-list-item
+    [routerLink]="['/dashboard']"
+    [activated]="selectedMenu == DASHBOARD"
+  >
+    <div class="d-flex align-items-center">
+      <span class="material-symbols-outlined"> home </span>
+      <span class="p-2">{{ "SIDEBAR.DASHBOARD" | translate }}</span>
+    </div>
+  </a>
+  <a
+    mat-list-item
+    [routerLink]="['/account']"
+    [activated]="selectedMenu == ACCOUNT"
+  >
+    <div class="d-flex align-items-center">
+      <span class="material-symbols-outlined"> account_circle </span>
+      <span class="p-2">{{ "SIDEBAR.ACCOUNT" | translate }}</span>
+    </div>
+  </a>
+  <a
+    mat-list-item
+    [routerLink]="['/profile']"
+    [activated]="selectedMenu == PROFILE"
+  >
+    <div class="d-flex align-items-center">
+      <span class="material-symbols-outlined"> badge </span>
+      <span class="p-2">{{ "SIDEBAR.PROFILE" | translate }}</span>
+    </div>
+  </a>
+</mat-nav-list>

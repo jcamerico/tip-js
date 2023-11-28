@@ -1,0 +1,71 @@
+{
+    "MENTIONS": {
+        "BACK": "Retour à l'inscription"
+    },
+    "HEADER": {
+        "REGISTER": "Créer un compte",
+        "LOGIN": "Se connecter",
+        "LOGOUT": "Déconnexion"
+    },
+    "FOOTER": {
+        "PRIVACY-POLICY": "Mentions Légales - Politique de Confidentialité",
+        "ALL-RIGHTS": "Tous droits réservés"
+    },
+    "GENERAL": {
+        "TIP": "Tournoi International de Paris",
+        "EMAIL": "Adresse email",
+        "PASSWORD": "Mot de passe"
+    },
+    "LOGIN": {
+        "ERROR": "Adresse email et/ou mot de passe incorrectes",
+        "CLOSED": "Les inscriptions sont actuellement closes. Rendez-vous en février 2024!",
+        "SHORT": "Connectez-vous",
+        "ACTION": "Se connecter à mon compte",
+        "CREATE": "Créer un compte",
+        "FORGOT-PWD": "J'ai oublié mon mot de passe"
+    },
+    "REGISTER": {
+        "SHORT": "Formulaire d'inscription",
+        "FIRSTNAME": "Prénom",
+        "LASTNAME": "Nom",
+        "PASSWORD": "Confirmez votre mot de passe",
+        "AGREEMENT": "En créant un compte, vous acceptez nos <a href=\"{{mentionUrl}}\">Mentions Légales et Politique de Confidentialité</a>",
+        "ACTION": "S'inscrire",
+        "ALREADY": "Déjà inscrit?",
+        "LOGIN": "Se connecter",
+        "SHOW-PWD": "Afficher mot de passe",
+        "HIDE-PWD": "Cacher mot de passe",
+        "VALIDATION-EMAIL": "Renvoyez moi l'email de validation",
+        "EMAIL-SENT": "Un email a été envoyé à l'adresse {{email}}.<br><br>Cliquer sur le lien contenu dans cet email pour valider votre inscription.<br>Vérifiez vos spams si nécessaire."
+    },
+    "ERROR": {
+        "CAPTCHA": "Ressaisissez le captcha!",
+        "EMAIL-VALIDATION": "Cette adresse email est en attente de validation.",
+        "EMAIL-ALREADY-REGISTERED": "Un compte existe déjà avec cette adresse mail.",
+        "EMAIL-UNKNOWN": "Adresse email inconnue !",
+        "RESET-TOKEN-INVALID": "Jeton de réinitialisation de mot passe invalide",
+        "LOCKED-ACCOUNT": "Votre compte a été verrouillé, merci de contacter l'organisation."
+    },
+    "RESET-PWD": {
+        "ACTION": "Réinitialisation mot de passe",
+        "EMAIL-SENT": "Un email a été envoyé à l'adresse {{ email }}.",
+        "BACK": "Retour à l'accueil",
+        "SUCCESS": "Mot de passe changé"
+    },
+    "EMAIL-VALIDATION": {
+        "ERROR" : "Clef invalide! Votre email n'a pas été validé.",
+        "BACK" : "Retour à l'accueil",
+        "SUCCESS" : "L'adresse email est validée. Vous pouvez vous connecter avec vos identifiants."
+    },
+    "ALERT": {
+        "INSCRIPTION-CLOSED": "Les inscriptions aux sports sont fermées.",
+        "PARTY-TICKETS-CLOSED": "Les achats de Tickets pour la soirée sont fermés. <b>Achat sur place possible.</b>",
+        "QRCODE-SENT": "Votre QRCode a bien été envoyé par e-mail",
+        "DISCOUNTS": "Vous avez des codes de réductions disponibles"
+    },
+    "SIDEBAR": {
+        "DASHBOARD": "Tableau de bord",
+        "ACCOUNT": "Mon compte",
+        "PROFILE": "Mon profil"
+    }
+}

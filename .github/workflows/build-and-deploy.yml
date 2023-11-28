@@ -1,0 +1,87 @@
+name: 🛠️ Build and Deploy 🚀
+on:
+  push:
+
+jobs:
+  build_front:
+    name: Launch front end tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: tip-frontend
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+      - run: npm ci
+      - run: npm run test-headless
+
+  build_back:
+    name: Launch back end tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: tip-backend
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup PHP with tools
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          tools: phpunit
+      - name: Install composer dependencies
+        run: composer install --no-scripts
+      - name: Prepare Laravel Application
+        run: |
+          cp .env.ci .env
+          php artisan key:generate
+      - name: Run test suite
+        run: vendor/bin/phpunit tests/
+
+  deploy:
+    name: Build and deploy application
+    needs: [build_front, build_back]
+    runs-on: ubuntu-latest
+    environment: ${{ github.ref == 'refs/heads/main' && 'production' || 'development' }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+      - name: Build front end for production
+        run: |
+          cd ./tip-frontend
+          npm ci
+          npm run build:prod
+      - name: Copy files via scp
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: tip-backend/*
+          target: tip
+          strip_components: 1
+      - name: Install composer and install dependencies
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            curl -sS https://getcomposer.org/installer | php
+            mv ./composer.phar tip/
+            cd tip/
+            ./composer.phar install --no-dev --optimize-autoloader
